@@ -60,3 +60,4 @@ D:\Projetos_Python\ESTOQUEAPI\Korp_Teste_Pedro\FaturamentoAPI\obj\Debug\net8.0\r
 D:\Projetos_Python\ESTOQUEAPI\Korp_Teste_Pedro\FaturamentoAPI\obj\Debug\net8.0\FaturamentoAPI.pdb
 D:\Projetos_Python\ESTOQUEAPI\Korp_Teste_Pedro\FaturamentoAPI\obj\Debug\net8.0\FaturamentoAPI.genruntimeconfig.cache
 D:\Projetos_Python\ESTOQUEAPI\Korp_Teste_Pedro\FaturamentoAPI\obj\Debug\net8.0\ref\FaturamentoAPI.dll
+D:\Projetos_Python\ESTOQUEAPI\Korp_Teste_Pedro\FaturamentoAPI\obj\Debug\net8.0\FaturamentoAPI.sourcelink.json

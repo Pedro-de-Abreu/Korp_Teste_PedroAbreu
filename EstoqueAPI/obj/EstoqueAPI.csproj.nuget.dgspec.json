@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\EstoqueAPI.csproj": {}
+    "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\EstoqueAPI.csproj": {}
   },
   "projects": {
-    "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\EstoqueAPI.csproj": {
+    "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\EstoqueAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\EstoqueAPI.csproj",
+        "projectUniqueName": "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\EstoqueAPI.csproj",
         "projectName": "EstoqueAPI",
-        "projectPath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\EstoqueAPI.csproj",
+        "projectPath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\EstoqueAPI.csproj",
         "packagesPath": "C:\\Users\\phaab\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\obj\\",
+        "outputPath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\phaab\\AppData\\Roaming\\NuGet\\NuGet.Config"

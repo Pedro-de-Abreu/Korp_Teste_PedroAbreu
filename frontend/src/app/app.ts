@@ -9,7 +9,7 @@ import { of } from 'rxjs';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './app.html' // <-- Ajustado para o nome do seu arquivo!
+  templateUrl: './app.html'
 })
 export class App implements OnInit {
   produtos: any[] = [];

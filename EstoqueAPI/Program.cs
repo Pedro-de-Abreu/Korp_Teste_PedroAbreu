@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Configura o banco SQLite local (vai criar um arquivo estoque.db na pasta)
+// Configuração o Banco local
 builder.Services.AddDbContext<EstoqueDb>(opt => opt.UseSqlite("Data Source=estoque.db"));
 
-// 2. Libera o CORS para o Angular conseguir acessar depois
+// Rota API
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 app.UseCors();
 
-// 3. Tática de guerrilha: Cria o banco e as tabelas automaticamente ao rodar o projeto
+// Inicialização automatica do banco de dados
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<EstoqueDb>();
@@ -36,7 +36,7 @@ app.MapPost("/produtos", async (Produto produto, EstoqueDb db) =>
     return Results.Created($"/produtos/{produto.Id}", produto);
 });
 
-// Baixar Estoque (Essa rota será chamada pelo Microsserviço de Faturamento)
+// Baixar Estoque
 app.MapPost("/produtos/{id}/baixar", async (int id, BaixaEstoqueRequest req, EstoqueDb db) =>
 {
     var produto = await db.Produtos.FindAsync(id);
@@ -54,7 +54,6 @@ app.MapPost("/produtos/{id}/baixar", async (int id, BaixaEstoqueRequest req, Est
     return Results.Ok(produto);
 });
 
-// FIXAMOS a porta 5001 para o Estoque. Assim o Faturamento sempre acha ele.
 app.Run("http://localhost:5001"); 
 
 

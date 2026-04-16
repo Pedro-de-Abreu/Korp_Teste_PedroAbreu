@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9dpNgZ8bJdE=",
+  "dgSpecHash": "9QOyzi91Vn0=",
   "success": true,
-  "projectFilePath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_Teste_Pedro\\EstoqueAPI\\EstoqueAPI.csproj",
+  "projectFilePath": "D:\\Projetos_Python\\EstoqueAPI\\Korp_teste_pedro\\EstoqueAPI\\EstoqueAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phaab\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.26\\microsoft.aspnetcore.openapi.8.0.26.nupkg.sha512",
     "C:\\Users\\phaab\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.4\\microsoft.data.sqlite.core.8.0.4.nupkg.sha512",

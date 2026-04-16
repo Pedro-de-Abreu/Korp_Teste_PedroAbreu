@@ -2,16 +2,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configura o banco local SQLite para as notas
+// Configura o banco local para as notas
 builder.Services.AddDbContext<FaturamentoDb>(opt => opt.UseSqlite("Data Source=faturamento.db"));
 
-// Habilita CORS pro Angular depois
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-// Habilita o "cliente" para fazermos requisições HTTP para o Microsserviço de Estoque
+// Habilita o "cliente" para alterar o Microsserviço de Estoque
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
@@ -41,12 +40,12 @@ app.MapPost("/notas/emitir", async (NotaFiscalRequest req, FaturamentoDb db, IHt
     
     try
     {
-        // 1. Tenta comunicar com o serviço de Estoque para dar a baixa
+        // Teste de baixa do estoque
         response = await client.PostAsJsonAsync($"http://localhost:5001/produtos/{req.ProdutoId}/baixar", payload);
     }
     catch (HttpRequestException)
     {
-        // REQUISITO DO TESTE (TRATAMENTO DE FALHA): Se o Estoque estiver fora do ar, cai aqui!
+        // Tratamento de falha na comunicação com o microsserviço de Estoque.
         return Results.Problem("O Serviço de Estoque está indisponível no momento. Não foi possível emitir a nota fiscal.", statusCode: 503);
     }
 
@@ -57,7 +56,7 @@ app.MapPost("/notas/emitir", async (NotaFiscalRequest req, FaturamentoDb db, IHt
         return Results.BadRequest(new { erro = "Erro ao baixar estoque: " + erro });
     }
 
-    // 2. Se a baixa no estoque deu sucesso, a gente salva a nota fiscal no banco
+    // 2. Se sucesso salva a nota fiscal no banco
     var novaNota = new NotaFiscal
     {
         Status = "Fechada", // Requisito: após a impressão, o status muda para fechada
@@ -79,7 +78,7 @@ app.Run("http://localhost:5002");
 
 public class NotaFiscal
 {
-    public int Id { get; set; } // O Id automático já atende o requisito de "Numeração Sequencial"
+    public int Id { get; set; } // O Id automático
     public string Status { get; set; } = "Aberta";
     public int ProdutoId { get; set; }
     public int Quantidade { get; set; }

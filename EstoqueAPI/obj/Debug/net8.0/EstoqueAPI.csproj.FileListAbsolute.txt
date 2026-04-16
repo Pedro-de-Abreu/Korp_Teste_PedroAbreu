@@ -60,3 +60,4 @@ D:\Projetos_Python\EstoqueAPI\Korp_Teste_Pedro\EstoqueAPI\obj\Debug\net8.0\refin
 D:\Projetos_Python\EstoqueAPI\Korp_Teste_Pedro\EstoqueAPI\obj\Debug\net8.0\EstoqueAPI.pdb
 D:\Projetos_Python\EstoqueAPI\Korp_Teste_Pedro\EstoqueAPI\obj\Debug\net8.0\EstoqueAPI.genruntimeconfig.cache
 D:\Projetos_Python\EstoqueAPI\Korp_Teste_Pedro\EstoqueAPI\obj\Debug\net8.0\ref\EstoqueAPI.dll
+D:\Projetos_Python\EstoqueAPI\Korp_teste_pedro\EstoqueAPI\obj\Debug\net8.0\EstoqueAPI.sourcelink.json
