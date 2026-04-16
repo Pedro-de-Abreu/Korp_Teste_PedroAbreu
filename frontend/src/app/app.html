@@ -1,0 +1,57 @@
+<div style="font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <h1 style="color: #2c3e50; text-align: center;">Korp ERP - Emissão de Notas e Estoque</h1>
+
+  <div *ngIf="mensagemErro" style="background: #ffcccc; color: #cc0000; padding: 15px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid #cc0000;">
+    <strong>⚠️ Atenção:</strong> {{ mensagemErro }}
+  </div>
+  <div *ngIf="mensagemSucesso" style="background: #ccffcc; color: #006600; padding: 15px; margin-bottom: 15px; border-radius: 5px; border-left: 5px solid #006600;">
+    <strong>✅ Sucesso:</strong> {{ mensagemSucesso }}
+  </div>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+      <h3 style="margin-top: 0; color: #0056b3;">📦 Cadastro de Produto</h3>
+      
+      <label>Descrição:</label><br>
+      <input [(ngModel)]="novoProduto.descricao" placeholder="Ex: Tênis Esportivo" style="width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box;"><br>
+      
+      <label>Saldo Inicial (Qtd):</label><br>
+      <input type="number" [(ngModel)]="novoProduto.saldo" style="width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box;"><br>
+      
+      <button (click)="cadastrarProduto()" style="background: #0056b3; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Salvar Produto no Estoque</button>
+
+      <hr style="margin: 20px 0;">
+      <h4>Estoque Atual</h4>
+      <ul style="padding-left: 20px;">
+        <li *ngFor="let p of produtos" style="margin-bottom: 5px;">
+          {{p.descricao}} | Saldo: <strong style="color: {{p.saldo > 0 ? 'green' : 'red'}}">{{p.saldo}}</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+      <h3 style="margin-top: 0; color: #d39e00;">🧾 Emitir Nota Fiscal</h3>
+      
+      <label>Produto para faturar:</label><br>
+      <select [(ngModel)]="novaNota.produtoId" style="width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box;">
+        <option value="0" disabled>Selecione um produto...</option>
+        <option *ngFor="let p of produtos" [value]="p.id">{{p.descricao}} (Disp: {{p.saldo}})</option>
+      </select><br>
+
+      <label>Quantidade:</label><br>
+      <input type="number" [(ngModel)]="novaNota.quantidade" style="width: 100%; padding: 8px; margin: 5px 0 15px 0; box-sizing: border-box;"><br>
+
+      <button (click)="emitirNota()" style="background: #28a745; color: white; padding: 15px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">
+        🖨️ IMPRIMIR NOTA E BAIXAR ESTOQUE
+      </button>
+
+      <hr style="margin: 20px 0;">
+      <h4>Histórico de Notas (Faturamento)</h4>
+      <ul style="padding-left: 20px;">
+        <li *ngFor="let n of notas" style="margin-bottom: 5px;">
+          Nota #{{n.id}} | Qtd: {{n.quantidade}} | Status: <strong style="color: blue;">{{n.status}}</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
