@@ -1,17 +1,34 @@
-Detalhamento Técnico - Front-end (Angular)
+# 🏢 Sistema de Gestão (Estoque e Faturamento) - Full Stack
 
-Ciclos de vida utilizados: Foi utilizado o ngOnInit no componente principal para disparar as requisições HTTP iniciais e carregar as listas de Produtos e Notas na inicialização da tela.
+## 🎯 Sobre o Projeto
+Este repositório contém a solução desenvolvida para um teste técnico prático focado em arquitetura Full Stack. O projeto é composto por um Front-end responsivo em Angular e duas APIs independentes no Back-end, simulando um ambiente de microsserviços para gestão de Estoque e Faturamento.
 
-Uso da biblioteca RxJS: Utilizada para o consumo das APIs REST via HttpClient (.subscribe()). Além disso, apliquei os operadores pipe e catchError para interceptar os erros vindos do backend (ex: falha de comunicação entre microsserviços) e tratá-los de forma reativa no front-end, alertando o usuário.
+## 🛠️ Tecnologias Utilizadas
+*   **Front-end:** Angular, TypeScript, RxJS, HTML/CSS.
+*   **Back-end:** C# .NET (APIs REST).
 
-Outras bibliotecas Angular: CommonModule (para diretivas como *ngIf e *ngFor) e FormsModule (para o Two-Way Data Binding com [(ngModel)]).
+## ⚙️ Detalhamento Técnico - Front-end (Angular)
 
-Componentes Visuais: Para garantir leveza, optei por não utilizar bibliotecas externas pesadas. A interface foi desenhada de forma limpa e responsiva utilizando HTML/CSS nativos.
+*   **Ciclos de vida (Lifecycle Hooks):** Utilização do `ngOnInit` no componente principal para disparar as requisições HTTP iniciais e carregar as listas de Produtos e Notas na inicialização da tela.
+*   **Reatividade com RxJS:** Consumo das APIs REST via `HttpClient` (`.subscribe()`). Aplicação avançada dos operadores `pipe` e `catchError` para interceptar erros vindos do backend (ex: falhas de comunicação entre os microsserviços) e tratá-los de forma reativa no front-end, alertando o usuário de maneira amigável.
+*   **Módulos Nativos:** Utilização do `CommonModule` (para diretivas estruturais como `*ngIf` e `*ngFor`) e do `FormsModule` (para o Two-Way Data Binding através do `[(ngModel)]`).
+*   **Componentes Visuais e Performance:** Para garantir leveza e rápida renderização, optei por não utilizar bibliotecas de componentes externas pesadas. A interface foi desenhada de forma limpa e responsiva utilizando puramente HTML e CSS nativos.
 
-Detalhamento Técnico - Back-end (C# .NET)
+## ⚙️ Detalhamento Técnico - Back-end (C# .NET)
 
-Frameworks e Arquitetura: Desenvolvido em C# (.NET 8) utilizando Minimal APIs. Foram criados dois microsserviços independentes (EstoqueAPI e FaturamentoAPI). Para a persistência de dados, utilizei o Entity Framework Core com bancos SQLite locais.
+*   **Arquitetura:** O backend foi estruturado dividindo as responsabilidades de negócio, resultando em duas aplicações independentes:
+    *   `EstoqueAPI`: Gerenciamento e persistência dos dados de produtos.
+    *   `FaturamentoAPI`: Processamento de notas e regras de faturamento.
+*   *Nota: O código foi refatorado visando padronização e limpeza de comentários, garantindo um Clean Code.*
 
-Tratamento de Falhas (Erros e Exceções): A comunicação com o Estoque está em um bloco try-catch. Caso ocorra uma HttpRequestException (simulando a queda do serviço de Estoque), o FaturamentoAPI captura a exceção e retorna um erro formatado com Status 503 Service Unavailable, garantindo a recuperação do sistema e o envio da mensagem ao front-end.
+## 🚀 Como Executar o Projeto Localmente
 
-Uso de LINQ: Utilizado nas consultas do Entity Framework (ex: ToListAsync() e FindAsync()) para buscar produtos e listas de notas diretamente no banco de dados.
+**1. Back-end (APIs em C#):**
+*   Navegue até as pastas `EstoqueAPI` e `FaturamentoAPI`.
+*   Restaure as dependências e execute cada projeto utilizando a sua IDE de preferência (Visual Studio / VS Code) ou via terminal com o comando `dotnet run`.
+
+**2. Front-end (Angular):**
+*   Navegue até a pasta `frontend`.
+*   Instale as dependências executando: `npm install`
+*   Inicie o servidor de desenvolvimento: `ng serve`
+*   Acesse no navegador: `http://localhost:4200`
