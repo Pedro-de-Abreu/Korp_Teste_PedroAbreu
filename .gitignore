@@ -1,0 +1,14 @@
+# Dependências do Frontend (Angular/Node)
+node_modules/
+dist/
+.angular/
+
+# Compilação do Backend (C# / .NET)
+[Bb]in/
+[Oo]bj/
+*.suo
+*.user
+
+# Variáveis de Ambiente e Arquivos de Sistema Ocultos
+.env
+.DS_Store
